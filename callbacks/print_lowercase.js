@@ -2,7 +2,7 @@ var getHTML = require('./http-functions');
 
 
 function printHTML (html) {
-  console.log(html);
+  console.log(html.toLowerCase());
 
 
 }

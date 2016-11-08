@@ -2,10 +2,9 @@ var getHTML = require('./http-functions');
 
 
 function printHTML (html) {
-  console.log(html);
+  console.log(html.split('').reverse().join(''));
+};
 
-
-}
 
 var requestOptions = {
   host: 'sytantris.github.io',
