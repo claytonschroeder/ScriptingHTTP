@@ -1,17 +1,22 @@
 var https = require('https');
 
-    var requestOptions1 = {
-      host: 'sytantris.github.io',
-      path: '/http-examples/step1.html'
-    };
-    var requestOptions2 = {
-      host: 'sytantris.github.io',
-      path: '/http-examples/step2.html'
-    };
-    var requestOptions3 = {
-      host: 'sytantris.github.io',
-      path: '/http-examples/step3.html'
-    };
+    // var requestOptions1 = {
+    //   host: 'sytantris.github.io',
+    //   path: '/http-examples/step1.html'
+    // };
+    // var requestOptions2 = {
+    //   host: 'sytantris.github.io',
+    //   path: '/http-examples/step2.html'
+    // };
+    // var requestOptions3 = {
+    //   host: 'sytantris.github.io',
+    //   path: '/http-examples/step3.html'
+    // };
+
+    var newObj = {};
+    newObj.host = process.argv[2];
+    newObj.path = process.argv[3];
+
 
 function getAndPrintHTML (options) {
 
@@ -41,4 +46,4 @@ function getAndPrintHTML (options) {
 
 }
 
-getAndPrintHTML(requestOptions1);
+getAndPrintHTML(newObj);
