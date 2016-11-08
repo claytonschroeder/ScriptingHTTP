@@ -1,4 +1,34 @@
 var https = require('https');
+// Library Code
+
+function getHTML (options, callback) {
+
+  https.get(options, function (response) {
+
+    response.setEncoding('utf8');
+
+    var dataChunks = "";
+    response.on('data', function (data) {
+
+      dataChunks += data;
+      // console.log("got more data " + data.length)
+    });
+
+    response.on('end', function() {
+      // console.log("\n\n\n ALL DATA: "+ dataChunks);
+      console.log('Response stream complete.');
+      callback(dataChunks);
+    });
+
+  });
+}
+
+//-------------------------------------
+// Client Code
+
+function printHTML (html) {
+  console.log(html);
+}
 
   var requestOptions1 = {
     host: 'sytantris.github.io',
@@ -17,36 +47,5 @@ var https = require('https');
   path: '/http-examples/step4.html'
   };
 
-function getHTML (options, callback) {
-
-  https.get(options, function (response) {
-
-    // set encoding of received data to UTF-8
-    response.setEncoding('utf8');
-
-    // the callback is invoked when a `data` chunk is received
-    var dataChunks = "";
-    response.on('data', function (data) {
-      // debugger;
-      dataChunks += data;
-      console.log("got more data " + data.length)
-    });
-
-    // the callback is invoked when all of the data has been received
-    // (the `end` of the stream)
-    response.on('end', function() {
-      console.log("\n\n\n ALL DATA: "+ dataChunks);
-      console.log('Response stream complete.');
-    });
-
-  });
-
-}
-
-
-
-function printHTML (html) {
-  console.log(html);
-}
-
 getHTML(requestOptions4, printHTML);
+

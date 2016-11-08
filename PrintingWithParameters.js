@@ -13,10 +13,6 @@ var https = require('https');
     //   path: '/http-examples/step3.html'
     // };
 
-    var newObj = {};
-    newObj.host = process.argv[2];
-    newObj.path = process.argv[3];
-
 
 function getAndPrintHTML (options) {
 
@@ -46,4 +42,8 @@ function getAndPrintHTML (options) {
 
 }
 
-getAndPrintHTML(newObj);
+var requestOptions = {
+      host: 'sytantris.github.io',
+      path: '/http-examples/step3.html'
+    };
+getAndPrintHTML(requestOptions);
